@@ -66,36 +66,32 @@ const books = [
 // Adicione o código do exercício aqui:
 const expectedResult = [
   {
-    age: 31,
-    author: 'Isaac Asimov',
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+    releaseYear: 1928,
   },
   {
-    age: 38,
-    author: 'H. P. Lovecraft',
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: { name: 'Isaac Asimov', birthYear: 1920 },
+    releaseYear: 1951,
   },
   {
-    age: 39,
-    author: 'Stephen King',
-  },
-  {
-    age: 43,
-    author: 'George R. R. Martin',
-  },
-  {
-    age: 45,
-    author: 'Frank Herbert',
-  },
-  {
-    age: 62,
-    author: 'J. R. R. Tolkien',
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+    releaseYear: 1954,
   },
 ];
 
-function nameAndAge() {
+function oldBooksOrdered() {
   // escreva seu código aqui
-  const result = books.map((book) => ({age: book.releaseYear - book.author.birthYear, author: `${book.author.name}`})).sort((a, b) => a.age - b.age);
+  const result = books.filter((book) => (2021 - book.releaseYear) >= 60).sort((a, b) => a.releaseYear - b.releaseYear);
   return result;
-};
-
-// console.log(nameAndAge());
-assert.deepStrictEqual(nameAndAge(), expectedResult);
+}
+// console.log(oldBooksOrdered());
+assert.deepStrictEqual(oldBooksOrdered(), expectedResult);
